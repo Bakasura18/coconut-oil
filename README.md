@@ -20,11 +20,11 @@ Created an init() and update() function.
 ani = animation.FuncAnimation(fig, update, frames=len(altitudes),
                               init_func=init, blit=True, interval=1000, repeat=False)
 
-#calls the function update at each frame,
-#frames=len(altitudes) : this passes values from [0,1,2,3...len(altitudes)] to the update function, i.e. the source of data to pass to the update function with each frame
-#init_func=init : to execute before the first frame. 
-#blit=True : to turn on blitting so that only the part that changed is updated with each frame and not the whole stuff
-#interval=1000 : to display each new frame after 1000 milli seconds
+#calls the function update at each frame,    
+#frames=len(altitudes) : this passes values from [0,1,2,3...len(altitudes)] to the update function, i.e. the source of data to pass to the update function with each frame  
+#init_func=init : to execute before the first frame.   
+#blit=True : to turn on blitting so that only the part that changed is updated with each frame and not the whole stuff  
+#interval=1000 : to display each new frame after 1000 milli seconds  
 #repeat=False : to not repeat the animation after its over.
 
 
