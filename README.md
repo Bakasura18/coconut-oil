@@ -8,7 +8,7 @@ https://www.tinkercad.com/things/8hEK5pSIU8q-janustask2?sharecode=5iYkRdg6f6MT1Y
 
 
 
-TASK 1
+# TASK 1
 This Task was quite hard for me. I was not at all familiar with the matplotlib and pandas. I watched a lot of YouTube videos, went back and forth with ChatGPT and finally began to understand things and could write some code on my own. **I have properly explained my code through comments, so pls do go through that.** First, I stored the values from the .csv file to 'data'. Next I converted it to numeric by using pd.to_numeric() and.dropna() to drop stuff which can't be converted to numeric. To convert the pressure data to altitude, I used the standard barometric formula:
 h = 44330 * (1 - (P/P0)^(0.19026))
 Since the test was done in the lower troposphere with not much changes in temperature and value of g, we can safely use this result. 
@@ -23,7 +23,7 @@ ani = animation.FuncAnimation(fig, update, frames=len(altitudes),
 #calls the function update at each frame,
 #frames=len(altitudes) : this passes values from [0,1,2,3...len(altitudes)] to the update function, i.e. the source of data to pass to the update function with each frame
 #init_func=init : to execute before the first frame. 
-# blit=True : to turn on blitting so that only the part that changed is updated with each frame and not the whole stuff
+#blit=True : to turn on blitting so that only the part that changed is updated with each frame and not the whole stuff
 #interval=1000 : to display each new frame after 1000 milli seconds
 #repeat=False : to not repeat the animation after its over.
 
@@ -33,7 +33,7 @@ ani = animation.FuncAnimation(fig, update, frames=len(altitudes),
 
 
 
-TASK 2
+# TASK 2
 I was already familiar with Arduino. So, I could easily wire up the force sensor, LEDs and the buzzer. Although I could refer some websites to find out the LED series resistor, I just assumed a 10mA limit for all and got R=5V/10mA = 500ohms. I had already worked on the force sensor for the ArchAngel Induction Task, so I used my experience from that.
 
 I thought a lot over the algorithm for ascending/descending/apogee detection and to decide how to smoothen out the data. Discussed it with my friends in the mess too. Finally, I came up with this 
