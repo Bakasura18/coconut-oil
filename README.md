@@ -9,10 +9,25 @@ https://www.tinkercad.com/things/8hEK5pSIU8q-janustask2?sharecode=5iYkRdg6f6MT1Y
 
 
 TASK 1
-This Task was quite hard for me. I was not at all familiar with the matplotlib and pandas. I watched a lot of YouTube videos, went back and forth with ChatGPT and finally began to understand things and could write some code on my own. First, I stored the values from the .csv file to 'data'. Next I converted it to numeric by using pd.to_numeric() and.dropna() to drop stuff which can't be converted to numeric. To convert the pressure data to altitude, I used the standard barometric formula:
+This Task was quite hard for me. I was not at all familiar with the matplotlib and pandas. I watched a lot of YouTube videos, went back and forth with ChatGPT and finally began to understand things and could write some code on my own. **I have properly explained my code through comments, so pls do go through that.** First, I stored the values from the .csv file to 'data'. Next I converted it to numeric by using pd.to_numeric() and.dropna() to drop stuff which can't be converted to numeric. To convert the pressure data to altitude, I used the standard barometric formula:
 h = 44330 * (1 - (P/P0)^(0.19026))
 Since the test was done in the lower troposphere with not much changes in temperature and value of g, we can safely use this result. 
-Used rolling mean by taking average of 2 values o adjacent side to smoothen out data fluctuations. Found out velocities using difference of 2 consecutive smoothened altitude readings. Next defined 2 axes one for velocity and one for altitude with the x axis as time. Next, used the init(), update(frame) and FuncAnimation to plot a new frame every second. 
+Used rolling mean by taking average of 2 values o adjacent side to smoothen out data fluctuations. Found out velocities using difference of 2 consecutive smoothened altitude readings. Next defined 2 y axes one for velocity and one for altitude with the x axis as time. 
+
+**Next, the animation part using FuncAnimation: i've explained it here**
+Created an init() and update() function. 
+
+ani = animation.FuncAnimation(fig, update, frames=len(altitudes),
+                              init_func=init, blit=True, interval=1000, repeat=False)
+
+#calls the function update at each frame,
+#frames=len(altitudes) : this passes values from [0,1,2,3...len(altitudes)] to the update function, i.e. the source of data to pass to the update function with each frame
+#init_func=init : to execute before the first frame. 
+# blit=True : to turn on blitting so that only the part that changed is updated with each frame and not the whole stuff
+#interval=1000 : to display each new frame after 1000 milli seconds
+#repeat=False : to not repeat the animation after its over.
+
+
 
 
 
